@@ -5,10 +5,10 @@
 #include <string.h>
 #include "passenger.h"
 
-#define MAX_AC_SEAT 10;
-#define MAX_NONAC_SEAT 10;
-#define MAX_SEATER_SEAT 10;
-#define MAX_WAITING_LIST 3;
+#define MAX_AC_SEAT 10
+#define MAX_NONAC_SEAT 10
+#define MAX_SEATER_SEAT 10
+#define MAX_WAITING_LIST 3
 
 extern Passenger acCouch[MAX_AC_SEAT];
 extern Passenger nonacCouch[MAX_NONAC_SEAT];
