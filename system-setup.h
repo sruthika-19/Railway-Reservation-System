@@ -1,5 +1,5 @@
-#ifndef SETUP_SYSTEM_H
-#define SETUP_SYSTEM_H
+#ifndef SYSTEM_SETUP_H
+#define SYSTEM_SETUP_H
 
 #include "global.h"
 #include <stdio.h>
