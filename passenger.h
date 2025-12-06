@@ -10,7 +10,7 @@ typedef struct
     Gender gender;
     int couchType;
     int seatNo;
-    int pnr;
+    char pnr[20];
 
 } Passenger;
 

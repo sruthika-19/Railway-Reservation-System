@@ -11,7 +11,7 @@
 #define MAX_WAITING_LIST 10
 
 extern Passenger acCouch[MAX_AC_SEAT];
-extern Passenger nonacCouch[MAX_NONAC_SEAT];
+extern Passenger nonAcCouch[MAX_NONAC_SEAT];
 extern Passenger seaterCouch[MAX_SEATER_SEAT];
 extern Passenger waitingList[MAX_WAITING_LIST];
 
