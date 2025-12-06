@@ -4,9 +4,9 @@
 #include "global.h"
 #include <stdio.h>
  
+void initializeSystem();
 void displayMenu();
 void prepareChart();
-void initializeSystem();
 void saveChartToFile();
 void loadSystemData();
 void saveSystemData();
