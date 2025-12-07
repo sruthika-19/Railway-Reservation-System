@@ -11,7 +11,6 @@ typedef struct
     int coachType;
     int seatNo;
     char pnr[20];
-
 } Passenger;
 
 #endif
