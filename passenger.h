@@ -5,10 +5,10 @@ typedef enum { MALE, FEMALE } Gender;
 
 typedef struct 
 {
-    char name[20];
+    char name[50];
     int age;
     Gender gender;
-    int couchType;
+    int coachType;
     int seatNo;
     char pnr[20];
 
