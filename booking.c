@@ -178,8 +178,8 @@ void booking()
         }
         cnt++;
     }
+    saveSystemData();
 }
-
 
 void generatePNR(Passenger * p)
 {
