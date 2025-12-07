@@ -13,11 +13,15 @@
 extern Passenger acCouch[MAX_AC_SEAT];
 extern Passenger nonAcCouch[MAX_NONAC_SEAT];
 extern Passenger seaterCouch[MAX_SEATER_SEAT];
-extern Passenger waitingList[MAX_WAITING_LIST];
+extern Passenger acWaitingList[MAX_WAITING_LIST];
+extern Passenger nonAcWaitingList[MAX_WAITING_LIST];
+extern Passenger seaterWaitingList[MAX_WAITING_LIST];
 
 extern int acCount;
 extern int nonAcCount;
 extern int seaterCount;
-extern int wlCount;
+extern int acWLCount;
+extern int nonAcWLCount;
+extern int seaterWLCount;
 
 #endif

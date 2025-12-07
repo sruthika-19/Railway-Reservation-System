@@ -33,8 +33,6 @@ void booking()
         printf("\n\t3. SEATER Couch.");
         scanf("%d", &p.couchType);
 
-        generatePNR(&p);
-
         int seatAllocated = 0;
 
         if (p.couchType == 1 && acCount < MAX_AC_SEAT)
@@ -42,6 +40,7 @@ void booking()
             p.seatNo = acCount + 1;
             acCouch[acCount++] = p;
             seatAllocated = 1;
+            generatePNR(&p);
             saveToFile(p, p.seatNo, "CONFIRMED");
         }
         else if (p.couchType == 2 && nonAcCount < MAX_NONAC_SEAT)
@@ -49,6 +48,7 @@ void booking()
             p.seatNo = nonAcCount + 1;
             nonAcCouch[nonAcCount++] = p;
             seatAllocated = 1;
+            generatePNR(&p);
             saveToFile(p, p.seatNo, "CONFIRMED");
         }
         else if (p.couchType == 3 && seaterCount < MAX_SEATER_SEAT)
@@ -56,17 +56,23 @@ void booking()
             p.seatNo = seaterCount + 1;
             seaterCouch[seaterCount++] = p;
             seatAllocated = 1;
+            generatePNR(&p);
             saveToFile(p, p.seatNo, "CONFIRMED");
         }
 
         if (!seatAllocated)
         {
-            if (wlCount < MAX_WAITING_LIST)
+           if ((p.couchType == 1 && acWLCount < MAX_WAITING_LIST) ||
+               (p.couchType == 2 && nonAcWLCount < MAX_WAITING_LIST) ||
+               (p.couchType == 3 && seaterWLCount < MAX_WAITING_LIST))
             {
+                p.seatNo = -1;
+                generatePNR(&p);
+
                 addToWaitingList(p.couchType, p);
                 saveToFile(p, -1, "WAITING");
+
                 printf("\nAdded to Waiting List.");
-                printf("\nWaiting List Number : %d\n", wlCount + 1);
             }
 
             else
@@ -125,12 +131,39 @@ void generatePNR(Passenger * p)
 
 void addToWaitingList(int coachType, Passenger p)
 {
-
+    if (p.couchType == 1)
+    {
+        acWaitingList[acWLCount++] = p;
+        printf("Waiting List Number: %d\n", acWLCount);
+    }
+    else if (p.couchType == 2)
+    {
+        nonAcWaitingList[nonAcWLCount++] = p;
+        printf("Waiting List Number: %d\n", nonAcWLCount);
+    }
+    else if (p.couchType == 3)
+    {
+        seaterWaitingList[seaterWLCount++] = p;
+        printf("Waiting List Number: %d\n", seaterWLCount);
+    }
 }
 
 void saveToFile(Passenger p, int seatNumber, char status[])
 {
+    FILE *fp = fopen("reservation.txt", "a+");
 
+    if (fp == NULL)
+    {
+        printf("Error Opening File!\n");
+        return;
+    }
+
+    fseek(fp, 0, SEEK_END);
+
+    if (ftell(fp) == 0)
+    {
+        
+    }
 }
 
 void loadFromFile()
